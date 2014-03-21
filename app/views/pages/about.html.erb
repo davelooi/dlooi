@@ -1,6 +1,13 @@
-<div class="container">
-  <div class="starter-template">
-    <h1>About Us</h1>
-    <p>Find me in app/views/pages/about.html.erb</p>
+<%= stylesheet_link_tag "highlight" %>
+
+<div class="container starter-template">
+  <h1>About Me</h1>
+  <div class="highlight">
+    <p class="collapse" id="viewdetails">Find me in app/views/pages/about.html.erb</p>
+    <p>
+      <button class="btn btn-default" data-toggle="collapse" data-target="#viewdetails">
+        Clicky here <span class="glyphicon glyphicon-chevron-down"></span>
+      </button>
+    </p>
   </div>
 </div>
