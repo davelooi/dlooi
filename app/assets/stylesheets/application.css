@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require bootstrap
- *= require starter-template
+ *= require basic
  *= require sticky-footer
  */

@@ -1,13 +1,166 @@
-<%= stylesheet_link_tag "highlight" %>
+<div class="container">
 
-<div class="container starter-template">
-  <h1>About Me</h1>
-  <div class="highlight">
-    <p class="collapse" id="viewdetails">Find me in app/views/pages/about.html.erb</p>
-    <p>
-      <button class="btn btn-default" data-toggle="collapse" data-target="#viewdetails">
-        Clicky here <span class="glyphicon glyphicon-chevron-down"></span>
-      </button>
-    </p>
+  <p><h2>Looi David</h2></p>
+
+  <p>
+    666, Hell Street,<br>
+    Hell<br>
+    email@address.com<br>
+    <a href="<%= root_path %>">dlooi.herokuapp.com</a>
+  </p>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseOne">
+          Personal Particulars <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tr><td>DOB</td><td>31 Oct 1982</td></tr>
+            <tr><td>Gender</td><td>Male</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseTwo">
+          Professional Summary <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <tr><td>Title</td><td>Software Development Engineer</td></tr>
+            <tr><td>Company</td><td>Nokia Solutions and Networks</td></tr>
+            <tr><td>Years of Experience</td><td>9 years</td></tr>
+            <tr><td>Highest Qualification</td><td>Bachelor's Degree in Electronics and Communication Engineering</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseThree">
+          Education Qualifications <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <h4>Bachelor's Degree in Electronics and Communication Engineering</h4>
+          <table class="table table-bordered">
+            <tr><td>Major</td><td>Electronics and Communication</td></tr>
+            <tr><td>Institute</td><td>University of Nottingham</td></tr>
+            <tr><td>Grade</td><td>2nd class</td></tr>
+            <tr><td>Graduate</td><td>January 2006</td></tr>
+          </table>
+          <h4>Advanced Diploma of Computer Engineering</h4>
+          <table class="table table-bordered">
+            <tr><td>Major</td><td>Computer</td></tr>
+            <tr><td>Institute</td><td>Informatics College, Malaysia</td></tr>
+            <tr><td>Grade</td><td>Distinction</td></tr>
+            <tr><td>Graduate</td><td>August 2002</td></tr>
+          </table>
+          <h4>International Diploma in Computer Studies</h4>
+          <table class="table table-bordered">
+            <tr><td>Major</td><td>E-Commerce</td></tr>
+            <tr><td>Institute</td><td>Sunway College, Malaysia</td></tr>
+            <tr><td>Graduate</td><td>April 2002</td></tr>
+          </table>
+          <h4>Diploma of Computer Engineering</h4>
+          <table class="table table-bordered">
+            <tr><td>Major</td><td>Computer</td></tr>
+            <tr><td>Institute</td><td>Informatics College, Malaysia</td></tr>
+            <tr><td>Grade</td><td>Distinction</td></tr>
+            <tr><td>Graduate</td><td>December 2000</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseFour">
+          Skills <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr><td>Skill</td><td>Proficiency</td></tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="2">Programming Languages</td></tr>
+              <tr><td>C</td><td>Expert</td></tr>
+              <tr><td>C#</td><td>Advanced</td></tr>
+              <tr><td>Delphi</td><td>Intermediate</td></tr>
+              <tr><td colspan="2">Scripting Languages</td></tr>
+              <tr><td>Perl</td><td>Advanced</td></tr>
+              <tr><td>Ruby on Rails</td><td>Advanced</td></tr>
+              <tr><td>Javascript</td><td>Advanced</td></tr>
+              <tr><td>Coffeescript</td><td>Advanced</td></tr>
+              <tr><td>SQL</td><td>Intermediate</td></tr>
+              <tr><td colspan="2">SCM</td></tr>
+              <tr><td>SVN</td><td>Expert</td></tr>
+              <tr><td>Git</td><td>Advanced</td></tr>
+              <tr><td colspan="2">Operating Systems</td></tr>
+              <tr><td>Linux</td><td>Advanced</td></tr>
+              <tr><td>Windows</td><td>Advanced</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" href="#collapseFive">
+          Languages <span class="glyphicon glyphicon-chevron-down"></span>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFive" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-condensed table-hover">
+            <thead>
+              <tr>
+                <td>Language</td>
+                <td>Spoken</td>
+                <td>Writen</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Chinese</td><td>Excellent</td><td>Unskilled</td></tr>
+              <tr><td>English</td><td>Excellent</td><td>Excellent</td></tr>
+              <tr><td>Malay</td><td>Proficient</td><td>Excellent</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
