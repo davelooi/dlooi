@@ -1,0 +1,21 @@
+<div class="container">
+
+  <p><h2><%= @user.name %></h2></p>
+
+  <p>
+    <%= @user.address %><br>
+    <%= @user.email %><br>
+    <a href="http://<%= @user.url %>"><%= @user.url %></a>
+  </p>
+  
+  <%= render partial: 'personal_particular', locals: {u: @user} %>
+  
+  <%= render partial: 'professional_summary', locals: {u: @user} %>
+
+  <%= render partial: 'education_qualification', locals: {u: @user} %>
+
+  <%= render partial: 'skill', locals: {u: @user} %>
+
+  <%= render partial: 'language', locals: {u: @user} %>
+
+</div>

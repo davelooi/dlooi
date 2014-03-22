@@ -12,7 +12,9 @@ MyApp::Application.routes.draw do
   get 'admin' => 'admin'
 
   get 'about' => 'pages#about'
-
+  
+  get 'users/:id' => 'users#show'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
