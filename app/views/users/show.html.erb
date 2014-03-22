@@ -3,8 +3,8 @@
   <p><h2><%= @user.name %></h2></p>
 
   <p>
-    <%= @user.address %><br>
-    <%= @user.email %><br>
+    <%= simple_format(@user.address, {}, wrapper_tag: "div") %>
+    <a href="mailto:<%= @user.email %>"><%= @user.email %><br>
     <a href="http://<%= @user.url %>"><%= @user.url %></a>
   </p>
   
