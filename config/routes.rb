@@ -1,4 +1,6 @@
 MyApp::Application.routes.draw do
+  resources :user_summaries
+
   resources :industries
 
   devise_for :admin_users, ActiveAdmin::Devise.config

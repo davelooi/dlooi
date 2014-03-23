@@ -51,3 +51,5 @@ ruby '2.1.1'
 gem 'unicorn'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'seed_dump'

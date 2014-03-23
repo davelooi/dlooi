@@ -1,0 +1,31 @@
+<h1>Listing user_summaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Exp</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_summaries.each do |user_summary| %>
+      <tr>
+        <td><%= user_summary.title %></td>
+        <td><%= user_summary.company %></td>
+        <td><%= user_summary.exp %></td>
+        <td><%= link_to 'Show', user_summary %></td>
+        <td><%= link_to 'Edit', edit_user_summary_path(user_summary) %></td>
+        <td><%= link_to 'Destroy', user_summary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User summary', new_user_summary_path %>
