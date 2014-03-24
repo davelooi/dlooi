@@ -11,8 +11,9 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a href="/users/1">dLooi</a></li>
-        <li><a href="/users/2">sLing</a></li>
+        <% User.all.each do |user| %>
+          <li><%= link_to user.uid, controller: "users", action: "show", id: user.id %></li>
+        <% end %>
         <li><a href="/about">About Us</a></li>
       </ul>
     </div><!--/.nav-collapse -->

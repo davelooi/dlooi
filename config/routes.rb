@@ -1,4 +1,4 @@
-MyApp::Application.routes.draw do
+DLooi::Application.routes.draw do
   resources :user_summaries
 
   resources :industries
