@@ -1,3 +1,6 @@
+AdminUser.create!([
+  {email: "davlooi@hotmail.com", password: "password"}
+])
 Company.create!([
   {name: "Nokia Solutions and Networks"},
   {name: "f-Secure"}
