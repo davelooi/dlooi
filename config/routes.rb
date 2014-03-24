@@ -13,9 +13,9 @@ DLooi::Application.routes.draw do
   
   get 'admin' => 'admin'
 
-  get 'about' => 'pages#about'
+  get 'about' => 'welcome#about'
   
-  get 'users/:id' => 'users#show'
+  get 'users/:id' => 'users#show', as: :user
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
