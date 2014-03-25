@@ -13,7 +13,7 @@
           <tr><td>Title</td><td><%= u.user_summary.title %></td></tr>
           <tr><td>Company</td><td><%= u.user_summary.company %></td></tr>
           <tr><td>Years of Experience</td><td><%= u.user_summary.exp %> years</td></tr>
-          <tr><td>Highest Qualification</td><td>Bachelor's Degree in Electronics and Communication Engineering</td></tr>
+          <tr><td>Highest Qualification</td><td><%= u.educations.first.title unless u.educations.blank? %></td></tr>
         </table>
       </div>
     </div>

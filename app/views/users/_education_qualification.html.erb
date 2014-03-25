@@ -9,33 +9,15 @@
   <div id="collapseEdu" class="panel-collapse collapse">
     <div class="panel-body">
       <div class="table-responsive">
-        <h4>Bachelor's Degree in Electronics and Communication Engineering</h4>
-        <table class="table table-bordered">
-          <tr><td>Major</td><td>Electronics and Communication</td></tr>
-          <tr><td>Institute</td><td>University of Nottingham</td></tr>
-          <tr><td>Grade</td><td>2nd class</td></tr>
-          <tr><td>Graduate</td><td>January 2006</td></tr>
-        </table>
-        <h4>Advanced Diploma of Computer Engineering</h4>
-        <table class="table table-bordered">
-          <tr><td>Major</td><td>Computer</td></tr>
-          <tr><td>Institute</td><td>Informatics College, Malaysia</td></tr>
-          <tr><td>Grade</td><td>Distinction</td></tr>
-          <tr><td>Graduate</td><td>August 2002</td></tr>
-        </table>
-        <h4>International Diploma in Computer Studies</h4>
-        <table class="table table-bordered">
-          <tr><td>Major</td><td>E-Commerce</td></tr>
-          <tr><td>Institute</td><td>Sunway College, Malaysia</td></tr>
-          <tr><td>Graduate</td><td>April 2002</td></tr>
-        </table>
-        <h4>Diploma of Computer Engineering</h4>
-        <table class="table table-bordered">
-          <tr><td>Major</td><td>Computer</td></tr>
-          <tr><td>Institute</td><td>Informatics College, Malaysia</td></tr>
-          <tr><td>Grade</td><td>Distinction</td></tr>
-          <tr><td>Graduate</td><td>December 2000</td></tr>
-        </table>
+        <% u.educations.all.each do |edu| %>
+          <h4><%= edu.title %></h4>
+          <table class="table table-bordered">
+            <tr><td>Major</td><td><%= edu.major %></td></tr>
+            <tr><td>Institute</td><td><%= edu.institute %></td></tr>
+            <tr><td>Grade</td><td><%= edu.grade %></td></tr>
+            <tr><td>Graduate</td><td><%= edu.graduate.strftime("%B %Y") %></td></tr>
+          </table>
+        <% end %>
       </div>
     </div>
   </div>

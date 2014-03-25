@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323164532) do
+ActiveRecord::Schema.define(version: 20140325165304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,12 +55,51 @@ ActiveRecord::Schema.define(version: 20140323164532) do
     t.datetime "updated_at"
   end
 
+  create_table "educations", force: true do |t|
+    t.string   "title"
+    t.string   "major"
+    t.integer  "institute_id"
+    t.string   "grade"
+    t.date     "graduate"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "educations", ["institute_id"], name: "index_educations_on_institute_id", using: :btree
+  add_index "educations", ["user_id"], name: "index_educations_on_user_id", using: :btree
+
   create_table "industries", force: true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "institutes", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skill_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", force: true do |t|
+    t.string   "name"
+    t.string   "level"
+    t.integer  "skill_category_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "skills", ["skill_category_id"], name: "index_skills_on_skill_category_id", using: :btree
+  add_index "skills", ["user_id"], name: "index_skills_on_user_id", using: :btree
 
   create_table "user_summaries", force: true do |t|
     t.string   "title"
