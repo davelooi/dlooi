@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  industry: MyString
+  position: MyString
+  start: 2014-03-27
+  end: 2014-03-27
+  desc: MyText
+  user_id: 
+
+two:
+  company_id: 
+  industry: MyString
+  position: MyString
+  start: 2014-03-27
+  end: 2014-03-27
+  desc: MyText
+  user_id: 

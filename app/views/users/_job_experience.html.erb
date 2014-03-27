@@ -1,0 +1,23 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" href="#collapseJob">
+        Job Experiences <span class="caret"></span>
+      </a>
+    </h4>
+  </div>
+  <div id="collapseJob" class="panel-collapse collapse">
+    <div class="panel-body">
+      <div class="table-responsive">
+        <% u.jobs.each do |job| %>
+          <h4><strong><%= job.company %></strong></h4>
+          <h4><%= job.position %></h4>
+          <em><%= job.start.strftime("%B %Y") %> - <%= job.end.strftime("%B %Y") %></em>
+          <div class="well well-sm">
+            <%= simple_format(job.desc, {}, wrapper_tag: "div") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
