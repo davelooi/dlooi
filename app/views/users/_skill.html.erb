@@ -14,22 +14,17 @@
             <tr><td>Skill</td><td>Proficiency</td></tr>
           </thead>
           <tbody>
-            <tr><td colspan="2">Programming Languages</td></tr>
-            <tr><td>C</td><td>Expert</td></tr>
-            <tr><td>C#</td><td>Advanced</td></tr>
-            <tr><td>Delphi</td><td>Intermediate</td></tr>
-            <tr><td colspan="2">Scripting Languages</td></tr>
-            <tr><td>Perl</td><td>Advanced</td></tr>
-            <tr><td>Ruby on Rails</td><td>Advanced</td></tr>
-            <tr><td>Javascript</td><td>Advanced</td></tr>
-            <tr><td>Coffeescript</td><td>Advanced</td></tr>
-            <tr><td>SQL</td><td>Intermediate</td></tr>
-            <tr><td colspan="2">SCM</td></tr>
-            <tr><td>SVN</td><td>Expert</td></tr>
-            <tr><td>Git</td><td>Advanced</td></tr>
-            <tr><td colspan="2">Operating Systems</td></tr>
-            <tr><td>Linux</td><td>Advanced</td></tr>
-            <tr><td>Windows</td><td>Advanced</td></tr>
+            <% u.skill_categories.each do |sc| %>
+              <tr><td colspan="2"><strong><%= sc.name %></strong></td></tr>
+              <% u.skills.each do |s| %>
+                <% if s.skill_category == sc %>
+                  <tr>
+                    <td><%= s.name %></td>
+                    <td><%= s.level %></td>
+                  </tr>
+                <% end %>
+              <% end %>
+            <% end %>
           </tbody>
         </table>
       </div>

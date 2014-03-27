@@ -9,8 +9,8 @@
   <div id="collapseEdu" class="panel-collapse collapse">
     <div class="panel-body">
       <div class="table-responsive">
-        <% u.educations.all.each do |edu| %>
-          <h4><%= edu.title %></h4>
+        <% u.educations.each do |edu| %>
+          <h4><strong><%= edu.title %></strong></h4>
           <table class="table table-bordered">
             <tr><td>Major</td><td><%= edu.major %></td></tr>
             <tr><td>Institute</td><td><%= edu.institute %></td></tr>
