@@ -18,9 +18,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Chinese</td><td>Excellent</td><td>Unskilled</td></tr>
-            <tr><td>English</td><td>Excellent</td><td>Excellent</td></tr>
-            <tr><td>Malay</td><td>Proficient</td><td>Excellent</td></tr>
+            <% u.languages.each do |lang| %>
+              <tr>
+                <td><%= lang.name %></td>
+                <td><%= lang.spoken %></td>
+                <td><%= lang.written %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
       </div>
