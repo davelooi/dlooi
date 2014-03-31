@@ -1,12 +1,13 @@
+<% page_heading @user.name %>
 <div class="container">
 
   <p><h2><%= @user.name %></h2></p>
 
-  <p>
+  <address>
     <%= simple_format(@user.address, {}, wrapper_tag: "div") %>
     <a href="mailto:<%= @user.email %>"><%= @user.email %><br>
-    <a href="http://<%= @user.url %>"><%= @user.url %></a>
-  </p>
+    <%= link_to @user.url %><br>
+  </address>
   
   <%= render partial: 'personal_particular', locals: {u: @user} %>
   

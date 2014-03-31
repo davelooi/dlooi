@@ -1,0 +1,2 @@
+class CheatController < ApplicationController
+end

@@ -1,0 +1,19 @@
+<% page_heading "Cheat Sheet" %>
+<div class="container">
+  <% Product.all.each do |prod| %>
+    <div id="<%= prod.tag %>">
+      <h3><strong><%= prod.name %></strong></h3>
+      <% prod.cheats.each do |cheat| %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <%= cheat.desc %>
+            <div class="well well-sm">
+              <code><%= cheat.cheat %></code>
+            </div>
+            <small><%= cheat.note unless cheat.note.blank? %></small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

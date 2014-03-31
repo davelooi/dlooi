@@ -1,7 +1,4 @@
 DLooi::Application.routes.draw do
-  resources :user_summaries
-
-  resources :industries
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -12,8 +9,10 @@ DLooi::Application.routes.draw do
   root 'welcome#index'
   
   get 'admin' => 'admin'
-
+  
   get 'about' => 'welcome#about'
+  
+  get 'cheat' => 'cheat#index'
   
   match '/:uid', :to => "users#show", :as => :uid, :via => :get
   
