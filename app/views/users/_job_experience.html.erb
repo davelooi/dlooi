@@ -14,7 +14,7 @@
           <h4><%= job.position %></h4>
           <em><%= job.start.strftime("%B %Y") %> - <%= job.end.strftime("%B %Y") %></em>
           <div class="well well-sm">
-            <%= simple_format(job.desc, {}, wrapper_tag: "div") %>
+            <%= simple_format(job.desc, {}, wrapper_tag: "small") %>
           </div>
         <% end %>
       </div>

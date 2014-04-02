@@ -7,9 +7,11 @@
       </div>
       <% prod.cheats.each do |cheat| %>
         <div class="panel-body">
-          <%= cheat.desc %>
+          <h4><%= cheat.desc %></h4>
           <div class="well well-sm">
             <code><%= cheat.cheat %></code>
+          </div>
+          <div>
             <%= content_tag(:p, cheat.note, :class => "pull-right text-warning") %>
           </div>
         </div>
