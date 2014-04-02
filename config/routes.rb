@@ -10,7 +10,7 @@ DLooi::Application.routes.draw do
   
   get 'admin' => 'admin'
   
-  get 'about' => 'welcome#about'
+  get 'about' => 'users#about'
   
   get 'cheat' => 'cheat#index'
   

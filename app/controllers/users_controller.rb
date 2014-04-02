@@ -6,5 +6,10 @@ class UsersController < ApplicationController
       format.html 
     end
   end
+
+  def about
+    @dlooi = User.find_by_uid("dlooi")
+    @slseow = User.find_by_uid("slseow")
+  end
   
 end
