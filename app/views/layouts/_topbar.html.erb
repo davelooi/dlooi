@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">dLooi</a>
+      <a class="navbar-brand" href="/"><%= site_name %></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,11 +21,11 @@
         </li>
         <li>
           <div class="btn-group navbar-btn">
-            <a href="/cheat" class="btn btn-default <%= 'active' if params[:controller] == 'cheat' %>">CheatSheet</a>
+            <a href="/cheats" class="btn btn-default <%= 'active' if params[:controller] == 'cheats' %>">CheatSheet</a>
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
             <ul class="dropdown-menu">
               <% Product.all.each do |prod| %>
-                <li><%= link_to prod.name, "/cheat##{prod.tag}" %></li>
+                <li><%= link_to prod.name, "/cheats##{prod.tag}" %></li>
               <% end %>
           </ul>
         </li>

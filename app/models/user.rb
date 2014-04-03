@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :languages
   has_many :jobs
 
-  validates :name, :uid, :email, presence: true
+  validates :name, :uid, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create }
 
 end

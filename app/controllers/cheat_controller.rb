@@ -1,2 +1,0 @@
-class CheatController < ApplicationController
-end

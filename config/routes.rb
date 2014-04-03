@@ -12,9 +12,9 @@ DLooi::Application.routes.draw do
   
   get 'about' => 'users#about'
   
-  get 'cheat' => 'cheat#index'
+  get 'cheats' => 'cheats#index'
   
-  match '/:uid', :to => "users#show", :as => :uid, :via => :get
+  get ':uid', to: 'users#show', as: :uid
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
