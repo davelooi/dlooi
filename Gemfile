@@ -57,3 +57,5 @@ gem 'seed_dump'
 group :development, :test do
   gem 'rspec-rails'
 end
+
+gem 'wordnik'

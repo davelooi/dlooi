@@ -14,6 +14,8 @@ DLooi::Application.routes.draw do
   
   get 'cheats' => 'cheats#index'
   
+  get 'words' => 'words#index'
+  
   get ':uid', to: 'users#show', as: :uid
   
   # Example of regular route:

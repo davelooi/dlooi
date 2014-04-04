@@ -1,0 +1,32 @@
+<% page_heading "Words" %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><strong>Word of the Day</strong></h3>
+    </div>
+    <div class="panel-body">
+      <h4><strong><%= @wotd["word"] %></strong></h4>
+      <% @wotd["definitions"].each do |eg| %>
+        <div class="well well-sm">
+          <small><%= eg["text"] %></small>
+        </div>
+      <% end %>
+      <img src="wordnik_badge_a2.png" class="img-responsive pull-right" alt="powered by Wordnik">
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3><strong>Random Word</strong></h3>
+    </div>
+    <div class="panel-body">
+      <h4><strong><%= @random["word"] %></strong></h4>
+      <% @random_definitions.each do |random_definition| %>
+        <div class="well well-sm">
+          <small><%= random_definition["text"] %></small>
+        </div>
+      <% end %>
+      <img src="wordnik_badge_a2.png" class="img-responsive pull-right" alt="powered by Wordnik">
+    </div>
+  </div>
+</div>
