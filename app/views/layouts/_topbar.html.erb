@@ -21,6 +21,14 @@
         </li>
         <li>
           <div class="btn-group navbar-btn">
+            <a href="/words" class="btn btn-default <%= 'active' if params[:controller] == 'words' %>">Word</a>
+            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+              <li><%= link_to "of the Day", :words %></li>
+          </ul>
+        </li>
+        <li>
+          <div class="btn-group navbar-btn">
             <a href="/cheats" class="btn btn-default <%= 'active' if params[:controller] == 'cheats' %>">CheatSheet</a>
             <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
             <ul class="dropdown-menu">

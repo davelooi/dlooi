@@ -1,0 +1,14 @@
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><strong><%= panel_title %></strong></h4>
+    </div>
+    <div class="panel-body">
+      <h2><strong><%= word %></strong></h2>
+      <% definitions.each do |definition| %>
+        <div class="well well-sm">
+          <small><%= definition["text"] %></small>
+        </div>
+      <% end %>
+      <img src="wordnik_badge_a2.png" class="img-responsive pull-right" alt="powered by Wordnik">
+    </div>
+  </div>
