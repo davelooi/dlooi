@@ -15,6 +15,7 @@ DLooi::Application.routes.draw do
   get 'cheats' => 'cheats#index'
   
   get 'words' => 'words#index'
+  get 'words/hangman' => 'words#hangman'
   
   get ':uid', to: 'users#show', as: :uid
   

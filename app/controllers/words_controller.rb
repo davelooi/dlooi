@@ -9,5 +9,14 @@ class WordsController < ApplicationController
       )
     @random_definitions = Wordnik.word.get_definitions(@random["word"])
   end
+  
+  def hangman
+    @word = Wordnik.words.get_random_word(
+      includePartOfSpeech: "noun",
+      minLength: 5,
+      maxLength: 10
+      )
+    @caWord = @word["word"].upcase.split(//)
+  end
 
 end

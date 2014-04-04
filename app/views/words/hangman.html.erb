@@ -1,0 +1,22 @@
+<% page_heading "Hangman" %>
+<%= javascript_include_tag "words/hangman" %>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= @word["word"] %>
+      <h2>
+        <% @caWord.each do |cWord| %>
+          <span class="label label-danger <%= cWord %>">_</span>
+        <% end %>
+      </h2>
+      <div class="bg-primary">
+        <h2>
+          <% ("A".."Z").each do |letter| %>
+            <div class="btn alpha"><h3><strong><%= letter %></strong></h3></div>
+          <% end %>
+        </h2>
+      </div>
+      <span id="counter" class="label label-default">0</span>
+    </div>
+  </div>
+</div>
