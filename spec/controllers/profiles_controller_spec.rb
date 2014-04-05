@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe UsersController do
+describe ProfilesController do
   render_views
   context "GET /about" do
     it "should respond with success" do
       get :about
       expect(response).to be_success
-      expect(response).to render_template("users/about")
+      expect(response).to render_template("profiles/about")
     end
     
     it "should says 'About Us'" do

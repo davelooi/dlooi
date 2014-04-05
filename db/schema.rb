@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331165640) do
+ActiveRecord::Schema.define(version: 20140405161408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,13 +72,13 @@ ActiveRecord::Schema.define(version: 20140331165640) do
     t.integer  "institute_id"
     t.string   "grade"
     t.date     "graduate"
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "educations", ["institute_id"], name: "index_educations_on_institute_id", using: :btree
-  add_index "educations", ["user_id"], name: "index_educations_on_user_id", using: :btree
+  add_index "educations", ["profile_id"], name: "index_educations_on_profile_id", using: :btree
 
   create_table "industries", force: true do |t|
     t.string   "name"
@@ -101,24 +101,24 @@ ActiveRecord::Schema.define(version: 20140331165640) do
     t.date     "start"
     t.date     "end"
     t.text     "desc"
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
-  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
+  add_index "jobs", ["profile_id"], name: "index_jobs_on_profile_id", using: :btree
 
   create_table "languages", force: true do |t|
     t.string   "name"
     t.string   "spoken"
     t.string   "written"
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "languages", ["user_id"], name: "index_languages_on_user_id", using: :btree
+  add_index "languages", ["profile_id"], name: "index_languages_on_profile_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
@@ -126,6 +126,18 @@ ActiveRecord::Schema.define(version: 20140331165640) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tag"
+  end
+
+  create_table "profiles", force: true do |t|
+    t.string   "uid"
+    t.string   "name"
+    t.string   "email"
+    t.string   "url"
+    t.date     "dob"
+    t.string   "gender"
+    t.text     "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "skill_categories", force: true do |t|
@@ -138,13 +150,13 @@ ActiveRecord::Schema.define(version: 20140331165640) do
     t.string   "name"
     t.string   "level"
     t.integer  "skill_category_id"
-    t.integer  "user_id"
+    t.integer  "profile_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "skills", ["profile_id"], name: "index_skills_on_profile_id", using: :btree
   add_index "skills", ["skill_category_id"], name: "index_skills_on_skill_category_id", using: :btree
-  add_index "skills", ["user_id"], name: "index_skills_on_user_id", using: :btree
 
   create_table "user_summaries", force: true do |t|
     t.string   "title"
@@ -152,21 +164,28 @@ ActiveRecord::Schema.define(version: 20140331165640) do
     t.integer  "exp"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "profile_id"
   end
 
   add_index "user_summaries", ["company_id"], name: "index_user_summaries_on_company_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "uid"
-    t.string   "name"
-    t.string   "email"
-    t.string   "url"
-    t.date     "dob"
-    t.string   "gender"
-    t.text     "address"
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",                  default: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

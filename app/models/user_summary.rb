@@ -1,4 +1,4 @@
 class UserSummary < ActiveRecord::Base
   belongs_to :company
-  belongs_to :user
+  belongs_to :profile
 end

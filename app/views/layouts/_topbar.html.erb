@@ -48,6 +48,13 @@
             </ul>
           </div>
         </li>
+        <% if current_user.try(:admin?) %>
+          <li>
+            <div class="navbar-btn">
+              <a href="/admin" class="btn btn-default">Admin</a>
+            </div>
+          </li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

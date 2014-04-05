@@ -59,3 +59,5 @@ group :development, :test do
 end
 
 gem 'wordnik'
+
+gem 'devise'

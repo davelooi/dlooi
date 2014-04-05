@@ -1,6 +1,6 @@
 DLooi::Application.routes.draw do
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -10,14 +10,14 @@ DLooi::Application.routes.draw do
   
   get 'admin' => 'admin'
   
-  get 'about' => 'users#about'
+  get 'about' => 'profiles#about'
   
   get 'cheats' => 'cheats#index'
   
   get 'words' => 'words#index'
   get 'words/hangman' => 'words#hangman'
   
-  get ':uid', to: 'users#show', as: :uid
+  get ':uid', to: 'profiles#show', as: :uid
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

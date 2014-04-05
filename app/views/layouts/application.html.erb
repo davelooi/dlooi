@@ -9,11 +9,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render :partial => "layouts/topbar" %> 
+  <%= render :partial => "layouts/topbar" %>
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+
   <%= yield %>
 
   <div id="footer">
     <div class="container">
+      <p class="pull-right">
+      <% if user_signed_in? %>
+        <strong><%= current_user.email %></strong>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
       <p class="text-muted">&copy; dLooi 2014</p>
     </div>
   </div>

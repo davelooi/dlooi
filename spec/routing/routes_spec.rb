@@ -20,9 +20,9 @@ describe "routing" do
   end
 
   context "route to users" do
-    it "routes /:uid to users#show for uid" do
+    it "routes /:uid to profiles#show for uid" do
       expect(:get => "/dlooi").to route_to(
-        :controller => "users",
+        :controller => "profiles",
         :action => "show",
         :uid => "dlooi"
       )
