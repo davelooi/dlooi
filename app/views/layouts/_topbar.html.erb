@@ -1,3 +1,6 @@
+<%= javascript_include_tag "hovernav" %>
+<%= stylesheet_link_tag    "hovernav" %>
+
 <nav class="navbar navbar-default" role="navigation">
   <div class="container container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -14,51 +17,27 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li>
-          <div class="navbar-btn">
-            <a href="/" class="btn btn-default <%= 'active' if params[:controller] == 'welcome' %>">Home</a>
-          </div>
+        <li><%= link_to "CheatSheet", :cheats %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Word <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "of the Day", :words %></li>
+            <li><%= link_to "Hangman", words_hangman_path %></li>
+          </ul>
         </li>
-        <li>
-          <div class="btn-group navbar-btn">
-            <a href="/words" class="btn btn-default <%= 'active' if params[:controller] == 'words' %>">Word</a>
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><%= link_to "of the Day", :words %></li>
-              <li><%= link_to "Hangman", words_hangman_path %></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="btn-group navbar-btn">
-            <a href="/cheats" class="btn btn-default <%= 'active' if params[:controller] == 'cheats' %>">CheatSheet</a>
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <% Product.all.each do |prod| %>
-                <li><%= link_to prod.name, "/cheats##{prod.tag}" %></li>
-              <% end %>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <div class="btn-group navbar-btn">
-            <a href="/about" class="btn btn-default <%= 'active' if params[:controller] == 'users' %>">About</a>
-            <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-            <ul class="dropdown-menu">
-              <li><a href="/dlooi">dLooi</a></li>
-              <li><a href="/slseow">slSeow</a></li>
-            </ul>
-          </div>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/about">About Us</a></li>
+            <li class="divider"></li>
+            <li><a href="/dlooi">dLooi</a></li>
+            <li><a href="/slseow">slSeow</a></li>
+          </ul>
         </li>
         <% if current_user.try(:admin?) %>
-          <li>
-            <div class="navbar-btn">
-              <a href="/admin" class="btn btn-default">Admin</a>
-            </div>
-          </li>
+          <li><%= link_to "Admin", :admin %></li>
         <% end %>
       </ul>
-    </div><!--/.nav-collapse -->
-  </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
-

@@ -1,21 +1,26 @@
 <% page_heading "Cheat Sheet" %>
 <div class="container">
-  <% Product.all.each do |prod| %>
-    <div id="<%= prod.tag %>" class="panel panel-default">
-      <div class="panel-heading">
-        <h3><strong><%= prod.name %></strong></h3>
-      </div>
-      <% prod.cheats.each do |cheat| %>
-        <div class="panel-body">
-          <h4><%= cheat.desc %></h4>
-          <div class="well well-sm">
-            <code><%= cheat.cheat %></code>
-          </div>
-          <div>
-            <%= content_tag(:p, cheat.note, :class => "pull-right text-warning") %>
-          </div>
+  <div class="col-md-9">
+    <% Product.all.each do |prod| %>
+      <div id="<%= prod.tag %>" class="panel panel-default">
+        <div class="panel-heading">
+          <h3><strong><%= prod.name %></strong></h3>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+        <% prod.cheats.each do |cheat| %>
+          <div class="panel-body">
+            <h4><%= cheat.desc %></h4>
+            <div class="well well-sm">
+              <code><%= cheat.cheat %></code>
+            </div>
+            <div>
+              <%= content_tag(:p, cheat.note, :class => "pull-right text-warning") %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-3">
+    <%= render "sidebar" %>
+  </div>
 </div>

@@ -5,12 +5,17 @@ class WordsController < ApplicationController
   end
   
   def hangman
+  end
+  
+  def getRandomWord
     @word = Wordnik.words.get_random_word(
       includePartOfSpeech: "noun",
       minLength: 5,
       maxLength: 10
       )
-    @caWord = @word["word"].upcase.split(//)
+    if request.xhr?
+      render :json => @word
+    end
   end
 
 end

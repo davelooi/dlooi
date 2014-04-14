@@ -1,0 +1,8 @@
+<div class="affix">
+  <div class="list-group">
+    <% Product.all.each do |prod| %>
+      <%= link_to prod.name, "##{prod.tag}", class: "list-group-item" %>
+    <% end %>
+  </div>
+</div>
+

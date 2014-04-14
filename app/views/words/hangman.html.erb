@@ -1,13 +1,10 @@
 <% page_heading "Hangman" %>
 <%= javascript_include_tag "words/hangman" %>
-<%= hidden_field_tag "randomword", @word["word"], { :id => "randomword" } %>
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
       <h1>
-        <% @caWord.each do |cWord| %>
-          <span class="label label-danger answer" data-letter="<%= cWord %>"><% if cWord != '-' %>&nbsp;<% else %>-<% end %></span>
-        <% end %>
+        <div id="my-answer"></div>
       </h1>
       <div class="bg-primary">
         <h3>
@@ -20,7 +17,10 @@
         Attempt <span id="attempt" class="label label-default">0</span>
         Miss <span id="wrong" class="label label-default">0</span>
       </p>
-      <p><%= @word["word"] %></p>
+      <p id='bla'></p>
+      <div>
+        <%= link_to "Start New Game", "#", id: "my-link", class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
