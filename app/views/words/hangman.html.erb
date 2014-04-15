@@ -1,5 +1,4 @@
 <% page_heading "Hangman" %>
-<%= javascript_include_tag "words/hangman" %>
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
@@ -19,8 +18,9 @@
       </p>
       <p id='bla'></p>
       <div>
-        <%= link_to "Start New Game", "#", id: "my-link", class: "btn btn-primary" %>
+        <%= link_to "Start New Game", "#", id: "new-game", class: "btn btn-primary" %>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_include_tag "words/hangman" %>
