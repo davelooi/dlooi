@@ -99,7 +99,6 @@ $ ->
   checkWin = ->
     win = true
     $('.answer').each (i, element) =>
-      # if there is any unsolved letter
       if $(element).text().match /[_]/
         win = false
     if win == true

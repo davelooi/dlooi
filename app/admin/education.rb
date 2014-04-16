@@ -13,6 +13,6 @@ ActiveAdmin.register Education do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  permit_params :title, :major, :institute_id, :grade, :graduate, :user_id
+  permit_params :title, :major, :institute_id, :grade, :graduate, :profile_id
   
 end

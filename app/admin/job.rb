@@ -13,6 +13,6 @@ ActiveAdmin.register Job do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  permit_params :company_id, :industry, :position, :start, :end, :desc, :user_id
+  permit_params :company_id, :industry, :position, :start, :end, :desc, :profile_id
   
 end

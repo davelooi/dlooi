@@ -13,6 +13,6 @@ ActiveAdmin.register UserSummary do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  permit_params :title, :exp, :user_id, :company_id
+  permit_params :title, :exp, :profile_id, :company_id
   
 end

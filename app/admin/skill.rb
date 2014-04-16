@@ -13,6 +13,6 @@ ActiveAdmin.register Skill do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  permit_params :name, :level, :skill_category_id, :user_id
+  permit_params :name, :level, :skill_category_id, :profile_id
   
 end

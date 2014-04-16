@@ -13,6 +13,6 @@ ActiveAdmin.register Language do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  permit_params :name, :spoken, :written, :user_id
+  permit_params :name, :spoken, :written, :profile_id
   
 end
