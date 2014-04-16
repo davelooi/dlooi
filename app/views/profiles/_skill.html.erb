@@ -10,17 +10,13 @@
     <div class="panel-body">
       <div class="table-responsive">
         <table class="table table-bordered table-condensed table-hover">
-          <thead>
-            <tr><td>Skill</td><td>Proficiency</td></tr>
-          </thead>
           <tbody>
             <% u.skill_categories.each do |sc| %>
-              <tr><td colspan="2"><strong><%= sc.name %></strong></td></tr>
+              <tr><td><strong><%= sc.name %></strong></td></tr>
               <% u.skills.each do |s| %>
                 <% if s.skill_category == sc %>
                   <tr>
                     <td><%= s.name %></td>
-                    <td><%= s.level %></td>
                   </tr>
                 <% end %>
               <% end %>
