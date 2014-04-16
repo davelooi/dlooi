@@ -6,7 +6,8 @@ class WordsController < ApplicationController
   
   def hangman
   end
-  
+
+  # ajax request new word for new game  
   def getRandomWord
     @word = Wordnik.words.get_random_word(
       includePartOfSpeech: "noun",

@@ -3,7 +3,70 @@ $ ->
   wrong = 0
   word = ""
 
-  # Counters
+  ###
+    Init Methods
+  ###
+
+  initGame = ->
+    # bind button to hangman rules
+    bindButtons()
+    startNewGame()
+
+  # bind all the buttons
+  bindButtons = ->
+    # bind guess buttons
+    $('.guess').click (e) ->
+      e.preventDefault()
+
+      # this button has been clicked
+      $(this).addClass 'disabled'
+
+      # try this letter
+      guessLetter $(this).text()
+      
+      # check result
+      checkWin()
+      checkLose()
+
+    # bind give up button
+    $('#give-up').click (e) ->
+      e.preventDefault()
+      revealAnswer()
+
+    # bind new game button
+    $('.new-game').click (e) ->
+      e.preventDefault()
+      startNewGame()
+  
+  startNewGame = ->
+    resetCounters()
+    getNewWord()
+  
+  # get new word
+  getNewWord = ->
+    # reset guess buttons
+    $('.guess').removeClass 'disabled'
+    
+    # get a new word from server
+    $.get '/words/getRandomWord', (data) ->
+      word = data.word.toUpperCase()
+      html = ''
+      caWord = word.split ''
+      for c in caWord
+        html += '<span class="label label-danger answer" data-letter=' + c + '>'
+        if c != '-'
+          html += '_'
+        else
+          html += c
+        html += '</span>'
+      $('#my-answer').html html
+      # $('#bla').text(word)
+
+
+  ###
+    Counters
+  ###
+  
   increaseCounters = (correct) ->
     attempt++
     wrong++ if not correct
@@ -15,8 +78,8 @@ $ ->
     updateCountersDisplay()
 
   updateCountersDisplay = ->
-    $('#attempt').text(attempt)
-    $('#wrong').text(wrong)
+    $('#attempt').text attempt
+    $('#wrong').text wrong
 
 
   ###
@@ -30,65 +93,45 @@ $ ->
       if c == $(element).data().letter
         $(element).text($(element).data().letter)
         correct = true
-    increaseCounters(correct)
-    correct
+    increaseCounters correct
 
-  # get new word
-  getNewWord = ->
-    # reset guess buttons
-    $('.guess').removeClass('disabled')
-    
-    # get a new word from server
-    $.get '/words/getRandomWord', (data) ->
-      word = data.word.toUpperCase()
-      html = ''
-      caWord = word.split('')
-      for c in caWord
-        html += '<span class="label label-danger answer" data-letter=' + c + '>'
-        if c != '-'
-          html += '_'
-        else
-          html += c
-        html += '</span>'
-      $('#my-answer').html(html)
-      $('#bla').text(word)
+  # check if game is over and if player win or lose
+  checkWin = ->
+    win = true
+    $('.answer').each (i, element) =>
+      if $(element).text().match /[_]/
+        win = false
+    if win == true
+      # disable all buttons
+      $('.guess').addClass 'disabled'
+      # prompt user for winning
+      $('#modal-title').html "You WIN"
+      $('#modal-answer').html "Answer : " + word
+      $('#wingame').modal 'show'
 
-  # bind new game button
-  $('#new-game').click (e) ->
-    e.preventDefault()
-    startNewGame()
+  checkLose = ->
+    lose = false
+    if wrong > 5
+      lose = true
+      # disable all buttons
+      $('.guess').addClass 'disabled'
+      # reveal answer
+      revealAnswer()
+      # prompt user for losing
+      $('#modal-title').html "You Lost"
+      $('#modal-answer').html "Answer : " + word
+      $('#wingame').modal 'show'
   
-  startNewGame = ->
-    resetCounters()
-    getNewWord()
-
-  # bind guess buttons
-  bindButtons = ->
-    $('.guess').click (e) ->
-      e.preventDefault()
-
-      # this button has been clicked
-      $(this).addClass('disabled')
-
-      # try this letter
-      guessLetter($(this).text())
-
-      ## if max attempt
-      if wrong > 5
-        # disable all buttons
-        $('.guess').addClass('disabled')
-        # reveal answer
-        # prompt user
-        alert "You Lose.."
-  
-  initGame = ->
-    # bind button to hangman rules
-    bindButtons()
-    startNewGame()
+  # show answer
+  revealAnswer = ->
+    $('.answer').each (i, element) =>
+      $(element).text($(element).data().letter)
 
 
   ###
-    Page Load
+    Init Page
   ###
 
   initGame()
+  
+
