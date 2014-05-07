@@ -1,0 +1,41 @@
+<% page_heading "2048" %>
+<%= javascript_include_tag "games/2048" %>
+<div class="container">
+  <div class="container">
+    <div id="gameDiv" class="col-md-8">
+      <table class="table table-bordered">
+        <tbody>
+        <% (0..3).each do |row| %>
+          <tr>
+            <% (0..3).each do |col| %>
+              <td id="t<%= row %><%= col %>"></td>
+            <% end %>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group-vertical">
+        <button type="button" class="btn btn-default" id="btnUp">
+          <span class="glyphicon glyphicon-arrow-up"></span> Up
+        </button>
+        <button type="button" class="btn btn-default" id="btnDown">
+          <span class="glyphicon glyphicon-arrow-down"></span> Down
+        </button>
+        <button type="button" class="btn btn-default" id="btnLeft">
+          <span class="glyphicon glyphicon-arrow-left"></span> Left
+        </button>
+        <button type="button" class="btn btn-default" id="btnRight">
+          <span class="glyphicon glyphicon-arrow-right"></span> Right
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    score:<p id="score"></p>
+    <p id="gameOver"></p>
+    <p id="gameWin"></p>
+    <p id="gameLose"></p>
+  </div>
+</div>

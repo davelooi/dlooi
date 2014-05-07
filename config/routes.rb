@@ -18,6 +18,8 @@ DLooi::Application.routes.draw do
   get 'words' => 'words#index'
   get 'words/hangman' => 'words#hangman'
   get 'words/getRandomWord' => 'words#getRandomWord'
+
+  get 'games/2048' => 'games#game2048'
   
   get ':uid', to: 'profiles#show', as: :uid
   
