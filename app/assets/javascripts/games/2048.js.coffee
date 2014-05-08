@@ -4,6 +4,7 @@ $ ->
     game = new Game2048(4)
     pp game
 
+  ## Bind BUTTON
   $('#btnLeft').click (e) ->
     e.preventDefault()
     game.move('left')
@@ -24,6 +25,25 @@ $ ->
     game.move('down')
     pp game
 
+  $('#btnPlay').click (e) ->
+    e.preventDefault()
+    initGame()    
+
+  ## Bind Keypress
+  $('body').keydown (e) ->
+    #alert e.which
+    switch e.which
+      when 37 then game.move('left')
+      when 65 then game.move('left')
+      when 38 then game.move('up')
+      when 87 then game.move('up')
+      when 39 then game.move('right')
+      when 68 then game.move('right')
+      when 40 then game.move('down')
+      when 83 then game.move('down')
+    pp game
+
+  ## Update Grid
   pp = (game) ->
     for row in [0..3]
       for col in [0..3]
@@ -187,40 +207,4 @@ class Game2048
         if a[row][col] != b[row][col]
           return false
     return true
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-###
-# DISPLAY
-###
-class GameCanvas
-  canvasWidth: 400
-  canvasHeight: 400
-
-  constructor: ->
-    @c = @createCanvas()
-
-  createCanvas: ->
-    canvas = document.createElement("canvas")
-    canvas.width = @canvasWidth
-    canvas.height = @canvasHeight
-    $('#gameDiv').append(canvas)
-    canvas.getContext("2d")
-
 

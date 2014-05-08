@@ -1,0 +1,27 @@
+#gameDiv table {
+  background-color: #7F9293;
+  text-align: center;
+  table-layout: fixed;
+}
+
+td {
+  font-weight: bold;
+  font-size: 250%;
+  width: 70px;
+  height: 70px;
+}
+
+.status-text {
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.score-text {
+  font-weight: bold;
+  font-size: 150%;
+  text-align: right;
+}
+
+.btn-group-vertical {
+  padding-bottom: 5px;
+}
