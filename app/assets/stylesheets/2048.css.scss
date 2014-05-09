@@ -1,4 +1,4 @@
-#gameDiv table {
+table {
   background-color: #7F9293;
   text-align: center;
   table-layout: fixed;
@@ -11,17 +11,23 @@ td {
   height: 70px;
 }
 
+.pull-right {
+  float: right !important;
+}
+
 .status-text {
   font-weight: bold;
   font-size: 150%;
 }
 
-.score-text {
+div .score-text {
   font-weight: bold;
   font-size: 150%;
   text-align: right;
 }
 
-.btn-group-vertical {
+.btn-group {
+  padding-right: 5px;
   padding-bottom: 5px;
 }
+

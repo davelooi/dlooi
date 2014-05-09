@@ -1,64 +1,3 @@
-$ ->
-  game = 0
-  initGame = ->
-    game = new Game2048(4)
-    pp game
-
-  ## Bind BUTTON
-  $('#btnLeft').click (e) ->
-    e.preventDefault()
-    game.move('left')
-    pp game
-
-  $('#btnRight').click (e) ->
-    e.preventDefault()
-    game.move('right')
-    pp game
-
-  $('#btnUp').click (e) ->
-    e.preventDefault()
-    game.move('up')
-    pp game
-
-  $('#btnDown').click (e) ->
-    e.preventDefault()
-    game.move('down')
-    pp game
-
-  $('#btnPlay').click (e) ->
-    e.preventDefault()
-    initGame()    
-
-  ## Bind Keypress
-  $('body').keydown (e) ->
-    #alert e.which
-    switch e.which
-      when 37 then game.move('left')
-      when 65 then game.move('left')
-      when 38 then game.move('up')
-      when 87 then game.move('up')
-      when 39 then game.move('right')
-      when 68 then game.move('right')
-      when 40 then game.move('down')
-      when 83 then game.move('down')
-    pp game
-
-  ## Update Grid
-  pp = (game) ->
-    for row in [0..3]
-      for col in [0..3]
-        cell = '#t'+row+col
-        $(cell).html game.grid[row][col]
-    pScore game
-
-  pScore = (game) ->
-    $('#score').html game.score
-    $('#gameOver').html(if game.gameOver then "Game Over" else "")
-    $('#gameWin').html(if game.gameWin then "You WIN..!!" else "")
-    $('#gameLose').html(if game.gameLose then "You Lost" else "")
-
-  initGame()
-
 ###
 # GAME
 ###
@@ -108,7 +47,7 @@ class Game2048
       when 'right' then @moveRight(true)
       when 'up'    then @moveUp(true)
       when 'down'  then @moveDown(true)
-    tempGrid = @grid.slice(0)
+      when 'cheat' then @grid[0][0] = 2048
     if @checkWin()
       @gameOver = true
       @gameWin = true
@@ -208,3 +147,69 @@ class Game2048
           return false
     return true
 
+###############
+# MAIN
+###############
+$ ->
+  game = 0
+  initGame = ->
+    game = new Game2048(4)
+    pp game
+
+  ## Bind BUTTON
+  $('#btnLeft').click (e) ->
+    e.preventDefault()
+    game.move('left')
+    pp game
+
+  $('#btnRight').click (e) ->
+    e.preventDefault()
+    game.move('right')
+    pp game
+
+  $('#btnUp').click (e) ->
+    e.preventDefault()
+    game.move('up')
+    pp game
+
+  $('#btnDown').click (e) ->
+    e.preventDefault()
+    game.move('down')
+    pp game
+
+  $('#btnPlay').click (e) ->
+    e.preventDefault()
+    initGame()    
+
+  ## Bind Keypress
+  $('body').keydown (e) ->
+    # alert e.which
+    switch e.which
+      when 37 then game.move('left')
+      when 65 then game.move('left')
+      when 38 then game.move('up')
+      when 87 then game.move('up')
+      when 39 then game.move('right')
+      when 68 then game.move('right')
+      when 40 then game.move('down')
+      when 83 then game.move('down')
+
+      when 67 then game.move('cheat')
+    pp game
+
+  ## Update Grid
+  pp = (game) ->
+    for row in [0..3]
+      for col in [0..3]
+        cell = '#t'+row+col
+        $(cell).html game.grid[row][col]
+    pScore game
+
+  pScore = (game) ->
+    html = "<p>score " + game.score + "</p>"
+    $('#score').html html
+    $('#gameOver').html(if game.gameOver then "Game Over" else "")
+    $('#gameWin').html(if game.gameWin then "You WIN..!!" else "")
+    $('#gameLose').html(if game.gameLose then "You Lost" else "")
+
+  initGame()
