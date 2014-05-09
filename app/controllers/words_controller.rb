@@ -4,9 +4,6 @@ class WordsController < ApplicationController
     @wotd = Wordnik.words.get_word_of_the_day
   end
   
-  def hangman
-  end
-
   # ajax request new word for new game  
   def getRandomWord
     @word = Wordnik.words.get_random_word(

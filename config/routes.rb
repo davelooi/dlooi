@@ -16,10 +16,11 @@ DLooi::Application.routes.draw do
   get 'cheats' => 'cheats#index'
   
   get 'words' => 'words#index'
-  get 'words/hangman' => 'words#hangman'
   get 'words/getRandomWord' => 'words#getRandomWord'
 
+  get 'games/hangman' => 'games#hangman'
   get 'games/2048' => 'games#game2048'
+  get 'games/gol' => 'games#gamegol'
   
   get ':uid', to: 'profiles#show', as: :uid
   
