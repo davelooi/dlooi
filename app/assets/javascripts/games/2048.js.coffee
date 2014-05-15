@@ -41,6 +41,7 @@ class Game2048
 
   ## MOVE ## this is the main function for the game
   move: (direction) ->
+    tempGrid = @grid.slice(0)
     return if @gameOver
     switch direction
       when 'left'  then @moveLeft(true)
@@ -54,7 +55,9 @@ class Game2048
     else if @checkLose()
       @gameOver = true
       @gameLose = true
-    @addNewTile()
+
+    # add tile only if something moved
+    if not @gridEqual(tempGrid,@grid) then @addNewTile()
     return @gameOver
 
   moveLeft: (addToScore) ->
