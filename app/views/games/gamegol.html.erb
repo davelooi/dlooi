@@ -1,11 +1,12 @@
 <% page_heading "Game of Life" %>
 <div class="container">
   <div class="container">
-    <div class="col-xs-6">
+    <div>
       <h1><strong>Game of Life</strong></h1>
     </div>
     <div>
       <button id="btnReset" class="btn btn-primary">
+        <span class="glyphicon glyphicon-refresh"></span>
         Reset
       </button>
     </div>
@@ -17,3 +18,4 @@
 <%= javascript_include_tag "jcanvas.min" %>
 <%= javascript_include_tag "games/gol" %>
 <%= stylesheet_link_tag    "gol" %>
+

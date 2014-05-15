@@ -117,7 +117,7 @@ $ ->
   tick = ->
     game.tick()
     canvas.draw()
-    setTimeout tick, 1000
+    setTimeout tick, 500
 
   $('#btnReset').click (e) ->
     e.preventDefault()
