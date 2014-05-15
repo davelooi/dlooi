@@ -21,7 +21,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "2048", games_2048_path %></li>
-            <li><%= link_to "Game Of Life", games_gol_path %></li>
+            <li><%= link_to "Game Of Life", games_gol_path, "data-no-turbolink" => true %></li>
             <li><%= link_to "Hangman", games_hangman_path %></li>
           </ul>
         </li>

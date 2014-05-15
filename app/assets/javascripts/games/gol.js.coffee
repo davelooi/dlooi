@@ -16,11 +16,11 @@ class GameOfLife
     for row in [0...@rowSize]
       @grid[row] = []
       for col in [0...@colSize]
-        @grid[row][col] = @createRandomLife(row,col)
+        @grid[row][col] = @createRandomLife row,col
 
   createRandomLife: (row,col) ->
     alive = Math.floor(Math.random() * @seed) == 0
-    @createLife(alive,row,col)
+    @createLife alive,row,col
 
   createLife: (alive,row,col) ->
     isAlive: alive
@@ -75,7 +75,7 @@ class CanvasOfLife
     @pxPerLife = pxPerLife
 
     # set canvas size
-    canvas = document.getElementById(@canvasId)
+    canvas = document.getElementById @canvasId
     canvas.width = @col * @pxPerLife
     canvas.height = @row * @pxPerLife
 
@@ -83,7 +83,7 @@ class CanvasOfLife
     $('#'+@canvasId).clearCanvas()
     for row in [0...@row]
       for col in [0...@col]
-        @drawLife(@game.grid[row][col])
+        @drawLife @game.grid[row][col]
 
   drawLife: (life) ->
     if life.isAlive then color = '#000000' else color = '#C0C0C0'
@@ -101,15 +101,17 @@ class CanvasOfLife
 $ ->
   game = 0
   canvas = 0
-  pxPerLife = 10
+  pxPerLife = 5
+  row = 100
+  col = 100
 
   initGame = ->
     newGame()
     tick()
 
   newGame = ->
-    game = new GameOfLife(50,50)
-    canvas = new CanvasOfLife(game,'golCanvas',pxPerLife)
+    game = new GameOfLife row,col
+    canvas = new CanvasOfLife game,'golCanvas',pxPerLife
     canvas.draw()
 
   tick = ->
