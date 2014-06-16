@@ -8,6 +8,8 @@ DLooi::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   root 'cheats#index'
+
+  get 'food' => 'welcome#food'
   
   get 'admin' => 'admin'
   
