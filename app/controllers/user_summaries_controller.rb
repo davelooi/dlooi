@@ -1,2 +1,2 @@
-class UserSummariesController < InheritedResources::Base
+class UserSummariesController < ApplicationController
 end

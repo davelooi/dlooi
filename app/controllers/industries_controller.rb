@@ -1,4 +1,4 @@
-class IndustriesController < InheritedResources::Base
+class IndustriesController < ApplicationController
 
   def create
     Industry.create(ind_params)    
