@@ -1,0 +1,56 @@
+<div class="container">
+  <%= flash[:notice] %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Import</h4>
+    </div>
+
+    <%= form_tag import_payslips_path, multipart: true do %>
+      <div class="form-group">
+        <label for="file">CSV File input</label>
+        <%= file_field_tag :file %>
+        <p class="help-block">[first_name,last_name,annual_salary,super_rate,payment_start_date]</p>
+        <%= submit_tag "Import CSV" %>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p class="navbar-text navbar-right">
+        <%=
+          link_to "Clear Payslips", clear_payslips_url, html_options = { class: "btn btn-default" }
+        %>
+      </p>
+      <h4>Payslips</h4>
+    </div>
+
+    <table class="table table-bordered table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Annual Salary</th>
+          <th>Super Rate</th>
+          <th>Payment Start Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @payslips.each do |payslip| %>
+          <tr>
+            <td><%= payslip.first_name %></td>
+            <td><%= payslip.last_name %></td>
+            <td><%= payslip.annual_salary %></td>
+            <td><%= payslip.super_rate %></td>
+            <td><%= payslip.payment_start_date %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%=
+      # add pagination
+      # search
+    %>
+
+  </div>
+</div>
